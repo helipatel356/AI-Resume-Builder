@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { dummyResumeData } from "../assets/assets";
 import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, DownloadIcon, EyeIcon, EyeOffIcon, FileText, FolderIcon, GraduationCap, Share2Icon, Sparkles, User } from "lucide-react";
@@ -14,6 +14,7 @@ import SkillsForm from "../components/SkillsForm";
 import { useSelector } from "react-redux";
 import api from "../configs/api.js";
 import toast from "react-hot-toast";
+import {useReactToPrint} from 'react-to-print';
 
 const ResumeBuilder = () => {
 
@@ -96,7 +97,7 @@ const ResumeBuilder = () => {
   const downloadResume = () => {
     window.print();
   }
-  
+
   const saveResume = async () => {
     try {
       let updatedResumeData = structuredClone(resumeData)
@@ -200,10 +201,10 @@ const ResumeBuilder = () => {
                     {resumeData.public ? <EyeIcon className="size-4"/> : <EyeOffIcon className="size-4"/>}
                     {resumeData.public ? "Public" : "Private"}
                   </button>
-                  <button onClick={downloadResume} className="flex items-center p-2 px-4 gap-2 text-xs bg-gradient-to-br from-green-100 to-green-200 text-green-600 rounded-lg ring-green-300 hover:ring transition-colors">
+                  <button onClick={downloadResume} className="flex items-center p-2 px-4 gap-2 text-xs bg-gradient-to-br from-green-100 to-green-200 text-green-600 rounded-lg ring-green-300 hover:ring transition-colors" >
                     <DownloadIcon className="size-4"/> Download
                   </button>
-
+  
                 </div>
               </div>
 

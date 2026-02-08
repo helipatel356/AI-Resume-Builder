@@ -16,7 +16,7 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
                 return <MinimalImageTemplate data={data} accentColor={accentColor} />;
 
             default:
-                return <ClassicTemplate data={data} accentColor={accentColor} />
+                return <ClassicTemplate data={data} accentColor={accentColor} />;
         }
     }
 
@@ -40,7 +40,7 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
                  body * {
                  visibility: hidden;
                  } 
-                 #resume-preview, resume-preview * {
+                 #resume-preview, #resume-preview * {
                   visibility: visible;
                  }
                  #resume-preview{
